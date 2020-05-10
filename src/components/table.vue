@@ -45,7 +45,7 @@
 			<template
 				v-for="item in custom.config
 					.filter((v) => v.able)
-					.filter((v) => v.model !== null)"
+					.filter((v) => v.mode !== null)"
 			>
 				<input
 					:key="item.label"

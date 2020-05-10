@@ -2,7 +2,7 @@
   "name": "@shawroger/easytable",
   "author": "shawroger",
   "description": "A easy and cool tool to transform a csv file into webpage",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "main": "dist/easytable.js",
   "unpkg": "dist/easytable.js",
   "repository": {
