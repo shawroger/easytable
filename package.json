@@ -1,0 +1,44 @@
+{
+  "name": "@shawroger/easytable",
+  "author": "shawroger",
+  "description": "A easy and cool tool to transform a csv file into webpage",
+  "version": "1.2.1",
+  "main": "dist/easytable.js",
+  "unpkg": "dist/easytable.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawroger/easytable.git"
+  },
+  "homepage": "https://github.com/shawroger/easytable",
+  "scripts": {
+    "build": "poi --prod --config config/build.js",
+    "dev": "poi --serve --config config/serve.js"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@poi/plugin-typescript": "^12.3.1",
+    "@types/node": "^13.13.5",
+    "@vue/composition-api": "^0.5.0",
+    "axios": "^0.19.2",
+    "beautify-scrollbar": "^1.0.8",
+    "node-sass": "^4.14.1",
+    "rexine": "^2.3.0",
+    "sass-loader": "^8.0.2",
+    "typescript": "^3.8.3",
+    "v2-table": "^3.0.3",
+    "vodal": "^2.4.0",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
