@@ -161,7 +161,9 @@ export function useTable(ctx: SetupContext) {
 		//@ts-ignore
 		v2table.value.curPage = 1;
 		state.customIndex = e.target.value;
+		state.showModal2 = false;
 		domRender();
+		
 	}
 	/**
 	 * 换页事件
