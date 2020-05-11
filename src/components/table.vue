@@ -3,10 +3,12 @@
 		<div class="et-title">
 			<p class="et-text">
 				<span @click="showModal = true">🔎&nbsp;</span>{{ custom.title
-				}}<span @click="showModal2 = true">&nbsp;📚</span>
+				}}<span @click="showModal2 = true" v-if="allCustoms.length > 1"
+					>&nbsp;📚</span
+				>
 			</p>
 		</div>
-		<v2-table			
+		<v2-table
 			stripe
 			ref="v2table"
 			:data="showData"
@@ -113,6 +115,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+.v2-table {
+	.v2-table__table-container {
+		overflow-x: auto !important;
+	}
+}
+
 .v2-table__pagination-box {
 	padding: 5px 0;
 	display: flex;
