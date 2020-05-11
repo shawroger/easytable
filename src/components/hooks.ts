@@ -89,9 +89,6 @@ export function useTable(ctx: SetupContext) {
 			Array.isArray(ctx.root.$easyTable.custom)
 		) {
 			state.allCustoms = ctx.root.$easyTable.custom;
-			if (typeof state.custom.onChangeConfig === "function") {
-				state.custom.onChangeConfig(state.allCustoms[index]);
-			}
 			return state.allCustoms[index];
 		} else {
 			return {};
@@ -133,6 +130,9 @@ export function useTable(ctx: SetupContext) {
 		 * 获取配置、初始化字段名
 		 */
 		state.custom = useConfig(state.customIndex);
+		if (typeof state.custom.onChangeConfig === "function") {
+			state.custom.onChangeConfig(state.custom);
+		}
 
 		/**
 		 * 获取表格数据
@@ -160,18 +160,18 @@ export function useTable(ctx: SetupContext) {
 		state.currentPage = 1;
 		//@ts-ignore
 		v2table.value.curPage = 1;
+		state.sortParams.prop = "";
 		state.customIndex = e.target.value;
 		state.showModal2 = false;
 		domRender();
-		
 	}
 	/**
 	 * 换页事件
 	 */
 	function onPageChange(page: number) {
 		state.currentPage = page;
-		if (typeof state.custom.onPageChange === "function") {
-			state.custom.onPageChange(page);
+		if (typeof state.custom.onChangePage === "function") {
+			state.custom.onChangePage(page);
 		}
 	}
 	/**

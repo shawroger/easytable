@@ -16,9 +16,9 @@ export interface Config {
 	}[];
 
 	onloadData: (data: any[]) => void;
-	onPageChange: (page: number) => void;
+	onChangePage: (page: number) => void;
 	onChangeSearch: (input: string[], data: any[]) => void;
-	onChangeConfig: (config: Config) => void;
+	onChangeConfig: (config: Partial<Config>) => void;
 }
 
 export const defaultState: Config = {
@@ -28,7 +28,7 @@ export const defaultState: Config = {
 	data: "./data.csv",
 	title: document.title,
 	onloadData: () => {},
-	onPageChange: () => {},
+	onChangePage: () => {},
 	onChangeSearch: () => {},
 	onChangeConfig: () => {},
 };

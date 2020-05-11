@@ -410,7 +410,7 @@ mode:
 
 ### onChangePage
 
-`onPageChange`函数钩子在换页翻页调用，暴露当前切换到的页数。
+`onChangePage`函数钩子在换页翻页调用，暴露当前切换到的页数。
 
 ### onChangeConfig
 
