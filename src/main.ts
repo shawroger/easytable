@@ -9,6 +9,7 @@ Vue.config.productionTip = false;
 
 class EasyTable {
 	vue = Vue;
+	VERSION = "1.2.6";
 
 	options: Config[] = [];
  

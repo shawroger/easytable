@@ -1,1 +1,185 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><title>Simple Page</title><script src=https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js></script><link href=./css/app.9d94272e.css rel=preload as=style><link href=./js/app.6d533515.js rel=preload as=script><link href=./js/chunk-vendors.f62e624c.js rel=preload as=script><link href=./css/app.9d94272e.css rel=stylesheet></head><body><div id=app></div><script src=./js/chunk-vendors.f62e624c.js></script><script src=./js/app.6d533515.js></script></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EasyTable Docs</title><script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.11.3/jquery.min.js"></script><link href="./css/app.9d94272e.css" rel="preload" as="style"><link href="./js/app.6d533515.js" rel="preload" as="script"><link href="./js/chunk-vendors.f62e624c.js" rel="preload" as="script"><link href="./css/app.9d94272e.css" rel="stylesheet"></head><body><div id="app"><section id="header"><header><!----><h1 id="logo"><a href="#" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">EasyTable</a></h1><p><p>A easy and cool tool to transform a csv file into webpage</p></p></header><nav id="nav"><ul><li><a href="#introduction" class="active" id="introduction-link" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">基本介绍</a></li><li><a href="#quick-start" class="" id="quick-start-link" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">快速开始</a></li><li><a href="#instance" class="" id="instance-link" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">实例方法</a></li><li><a href="#data-config" class="" id="data-config-link" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">数据配置</a></li><li><a href="#table-config" class="" id="table-config-link" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">列表配置</a></li><li><a href="#hooks" class="" id="hooks-link" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">钩子函数</a></li><li><a href="#thanks" class="" id="thanks-link" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">鸣谢</a></li></ul></nav><footer></footer></section><div id="wrapper"><div id="main"><section id="introduction"><div class="container"><header class="major"><h2>EasyTable</h2></header><h2>基本介绍</h2><p> EasyTable 是一个高效便利的 CSV文件转网页 的开源工具。<br> 支持自定义配置，支持各种检索模式，使用简单方便。<br><br> EasyTable 是一个开源的项目，其使用了如下的开源项目 </p><ul><li><a href="https://vuejs.org/">Vue</a></li><li><a href="https://github.com/axios/axios">Axios</a></li><li><a href="https://github.com/chenjiahan/vodal">Vodal</a></li><li><a href="https://github.com/shawroger/Rexine">Rexine</a></li><li><a href="https://github.com/dwqs/v2-table">v2-table</a></li></ul></div></section><section id="quick-start"><div class="container"><h2>快速开始</h2><pre><code class="language-bash hljs">git <span class="hljs-built_in">clone</span> https://github.com/shawroger/easytable.git</code></pre><p> 或者直接在一个目录准备一个 data.csv 和 index.html 文件，并在 index.html 中加入如下内容 </p><pre><code class="html hljs xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"X-UA-Compatible"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"IE=edge"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width,initial-scale=1.0"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">link</span>
+            <span class="hljs-attr">href</span>=<span class="hljs-string">"https://unpkg.com/@shawroger/easytable/dist/easytable.css"</span>
+            <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>
+        /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>EasyTable Demo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"root"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/@shawroger/easytable/dist/easytable.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+            EasyTable.init()
+                .add({
+                    <span class="hljs-attr">index</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 使用序号</span>
+                    <span class="hljs-attr">footer</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">//显示页脚</span>
+                    <span class="hljs-attr">target</span>: <span class="hljs-string">"#root"</span>, <span class="hljs-comment">//渲染的 div</span>
+                    <span class="hljs-attr">data</span>: <span class="hljs-string">"./data.csv"</span>, <span class="hljs-comment">// 读取的文件路径</span>
+                    <span class="hljs-attr">title</span>: <span class="hljs-string">"EasyTable Demo"</span>, <span class="hljs-comment">// 标题</span>
+                    <span class="hljs-attr">config</span>: [
+                        {
+                            <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+                            <span class="hljs-attr">mode</span>: <span class="hljs-literal">null</span>,
+                            <span class="hljs-attr">label</span>: <span class="hljs-string">"列的标题"</span>,
+                        },
+                        <span class="hljs-comment">// .. more columns</span>
+                    ],
+                })
+                .render(<span class="hljs-string">"#root"</span>);
+        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre><h3 id="修改文件">修改文件</h3><p>默认的读取的<code>CSV</code>文件路径</p><ul><li><p>开发模式 <code>/public/data.csv</code></p></li><li><p>部署模式 <code>/data.csv</code></p></li></ul><pre><code class="language-bash hljs">张三,20,北京
+李四,25,上海</code></pre><h3 id="本地运行">本地运行</h3><pre><code class="language-bash hljs">npm start</code></pre><h3 id="打包部署">打包部署</h3><pre><code class="language-bash hljs">npm run build</code></pre><h3 id="最新特性">最新特性</h3><p><code>EasyTable</code> 已经支持传入数组类型配置，此时将启用数据源切换功能。 </p></div></section><section id="instance"><div class="container"><h2 id="实例方法">实例方法</h2><p>所有的实例方法都支持链式操作</p><h3 id="init">init</h3><p>创建一个<code>EasyTable</code>实例</p><h3 id="add">add</h3><p>添加一个一个<code>EasyTable</code>的数据</p><h3 id="render">render</h3><p>渲染到指定的节点</p></div></section><section id="data-config"><div class="container"><h2 id="数据配置">数据配置</h2><h3 id="data">data</h3><pre><code class="language-ts hljs typescript">csv: <span class="hljs-built_in">string</span>;</code></pre><p> 配置项<code>data</code>为<code>EasyTable</code>读取的<code>CSV</code>文件的路径，默认为<code>./data.csv</code>(相对于<code>index.html</code>的路径)，可以为远程跨越资源。 </p><p> 如果传入的数据本身就是<code>json</code>格式，<code>EasyTable</code>将直接渲染出来。 </p><pre><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    EasyTable.init()
+        .add({
+            <span class="hljs-attr">index</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 使用序号</span>
+            <span class="hljs-attr">footer</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">//显示页脚</span>
+            <span class="hljs-attr">target</span>: <span class="hljs-string">"#root"</span>, <span class="hljs-comment">//渲染的 div</span>
+            <span class="hljs-attr">data</span>: <span class="hljs-string">"./data.csv"</span>, <span class="hljs-comment">// 读取的文件路径</span>
+            <span class="hljs-attr">title</span>: <span class="hljs-string">"EasyTable Demo"</span>, <span class="hljs-comment">// 标题</span>
+            <span class="hljs-attr">config</span>: [
+                {
+                    <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+                    <span class="hljs-attr">mode</span>: <span class="hljs-literal">null</span>,
+                    <span class="hljs-attr">label</span>: <span class="hljs-string">"列的标题"</span>,
+                    <span class="hljs-attr">sort</span>: <span class="hljs-literal">true</span>,
+                },
+            ],
+        })
+        .render(<span class="hljs-string">"#root"</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><h3 id="title">title</h3><pre><code class="language-ts hljs typescript">title: <span class="hljs-built_in">string</span>;</code></pre><p><code>title</code> 是数据表的标题，如果不设置的话，默认为网页的标题 <code>document.title</code></p><h3 id="index">index</h3><pre><code class="language-ts hljs typescript">index: <span class="hljs-built_in">boolean</span>;</code></pre><p> 如果想要额外渲染一行序号，可以在配置<code>index</code>为<code>true</code>，默认为不显示序号 </p><pre><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    EasyTable.init().add({
+        <span class="hljs-comment">// ...more configs</span>
+        <span class="hljs-attr">index</span>: <span class="hljs-literal">true</span>
+    }.render(<span class="hljs-string">"#root"</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><h3 id="target">target</h3><pre><code class="language-ts hljs typescript">target: <span class="hljs-built_in">string</span>;</code></pre><p>选择要渲染的 DIV，默认为<code>#root</code>标记。</p><h3 id="target">footer</h3><pre><code class="language-ts hljs typescript">footer: <span class="hljs-built_in">boolean</span>;</code></pre><p>控制是否显示默认页脚，默认为<code>true</code>，即显示页脚。</p></div></section><section id="table-config"><div class="container"><h2 id="列表配置">列表配置</h2><p><code>EasyTable</code>还可以对每一列进行配置，关于每列的配置项在<code>config</code>数组中修改，切记<code>config</code>数组长度要与列的总数相等，除非是空数组选择默认配置，不然会报错。 </p><h3 id="able">able</h3><pre><code class="language-ts hljs typescript">able: <span class="hljs-built_in">boolean</span>;</code></pre><p> 如果想忽略某一列的渲染，可以在配置<code>able</code>项为<code>false</code>，如果不设置或设置为空数组，将渲染所有列。 </p><pre><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    EasyTable.init()
+        .add({
+            <span class="hljs-comment">// ...more configs</span>
+            <span class="hljs-attr">config</span>: [
+                {
+                    <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+                    <span class="hljs-attr">label</span>: <span class="hljs-string">"我会渲染出来"</span>,
+                },
+                {
+                    <span class="hljs-attr">able</span>: <span class="hljs-literal">false</span>,
+                    <span class="hljs-attr">label</span>: <span class="hljs-string">"我不会被渲染"</span>,
+                },
+            ],
+        })
+        .render(<span class="hljs-string">"#root"</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><h3 id="sort">sort</h3><pre><code class="language-ts hljs typescript">sort: <span class="hljs-built_in">boolean</span>;</code></pre><p> 如果想开启某一列的排序功能，可以在配置<code>sort</code>项为<code>true</code>。 </p><h3 id="label">label</h3><pre><code class="language-ts hljs typescript">label: <span class="hljs-built_in">string</span>;</code></pre><p><code>label</code> 是数据表每一列的标题，如果不配置的话，默认读取 <code>CSV</code> 文件的第 1 行。 </p><pre><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    EasyTable.init()
+        .add({
+            <span class="hljs-comment">// ...more configs</span>
+            <span class="hljs-attr">config</span>: [
+                {
+                    <span class="hljs-attr">label</span>: <span class="hljs-string">"第1列的标题"</span>,
+                },
+                {
+                    <span class="hljs-attr">label</span>: <span class="hljs-string">"第2列的标题"</span>,
+                },
+            ],
+        })
+        .render(<span class="hljs-string">"#root"</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><h3 id="mode">mode</h3><pre><code class="language-ts hljs typescript">mode:
+    <span class="hljs-literal">null</span> |  <span class="hljs-comment">// 不检索</span>
+    <span class="hljs-built_in">string</span> |  <span class="hljs-comment">// 字符匹配模式 | 字符全等模式</span>
+    <span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">string</span>&gt; | <span class="hljs-comment">// 列表匹配模式</span>
+    <span class="hljs-built_in">Array</span>&lt;{ key: <span class="hljs-built_in">string</span>; val: <span class="hljs-built_in">string</span> }&gt; <span class="hljs-comment">//同上</span></code></pre><p><code>mode</code> 规定了数据表每一列的检索方式，如果不设置的话，默认不开启检索模式。 </p><p><code>mode</code>的配置项看似复杂，不过每种检索方式只对应一种描述，所以操作起来并不困难。 </p><h4 id="不检索模式">不检索模式</h4><pre><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    EasyTable.init()
+        .add({
+            <span class="hljs-comment">// ...more configs</span>
+            <span class="hljs-attr">config</span>: [
+                {
+                    <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+                    <span class="hljs-attr">label</span>: <span class="hljs-string">"不检索"</span>,
+                    <span class="hljs-attr">mode</span>: <span class="hljs-literal">null</span>,
+                },
+                {
+                    <span class="hljs-attr">able</span>: <span class="hljs-literal">false</span>,
+                    <span class="hljs-attr">label</span>: <span class="hljs-string">"依然不检索"</span>,
+                    <span class="hljs-attr">mode</span>: <span class="hljs-literal">null</span>,
+                },
+            ],
+        })
+        .render(<span class="hljs-string">"#root"</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p>将某一列设置为<code>null</code>，该列就不会开启检索功能。</p><h4 id="字符匹配模式">字符匹配模式</h4><pre><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    EasyTable.init()
+        .add({
+            <span class="hljs-comment">// ...more configs</span>
+            <span class="hljs-attr">config</span>: [
+                {
+                    <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+                    <span class="hljs-attr">label</span>: <span class="hljs-string">"不检索"</span>,
+                    <span class="hljs-attr">mode</span>: <span class="hljs-literal">null</span>,
+                },
+                {
+                    <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+                    <span class="hljs-attr">label</span>: <span class="hljs-string">"字符匹配"</span>,
+                    <span class="hljs-attr">mode</span>: <span class="hljs-string">""</span>,
+                },
+            ],
+        })
+        .render(<span class="hljs-string">"#root"</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p> 将某一列设置为<code>字符串</code>格式，该列就会开启字符匹配检索模式，即该列元素包含检索内容为符合条件，这也是默认配置。 </p><h4 id="字符全等模式">字符全等模式</h4><pre><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    EasyTable.init().add({
+        <span class="hljs-comment">// ...more configs</span>
+        <span class="hljs-attr">config</span>: [{
+            <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">label</span>: <span class="hljs-string">"不检索"</span>,
+            <span class="hljs-attr">mode</span>: <span class="hljs-literal">null</span>
+        },{
+            <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>
+            <span class="hljs-attr">label</span>: <span class="hljs-string">"字符匹配"</span>,
+            <span class="hljs-attr">mode</span>: <span class="hljs-string">""</span>
+        }，{
+            <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">label</span>: <span class="hljs-string">"字符全等"</span>,
+            <span class="hljs-attr">mode</span>: <span class="hljs-string">"[=]"</span>
+        }]
+    }).render(<span class="hljs-string">"#root"</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p> 将某一列设置为<code>字符串</code>格式且值为<code>[=]</code>，该列就会开启字符全等检索模式，即该列元素全等于检索内容为符合条件。 </p><h4 id="列表匹配模式">列表匹配模式</h4><p> 将某一列设置为<code>Array&lt;string&gt;</code>或者<code>Array&lt;{ key: string; val: string }&gt;</code>类型，该列就会列表匹配模式，<code>EasyTable</code>会渲染出一个下拉列表进行检索。 </p><blockquote><p>如何配置下拉列表</p></blockquote><p> 如果您的列表显示内容和检索内容相同 ，直接在该列配置一项字符串数组即可。 </p><pre><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    EasyTable.init().add({
+        <span class="hljs-comment">// ...more configs</span>
+        <span class="hljs-attr">config</span>: [{
+            <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">label</span>: <span class="hljs-string">"姓名"</span>,
+            <span class="hljs-attr">mode</span>: <span class="hljs-string">""</span>
+        },{
+            <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">label</span>: <span class="hljs-string">"年龄"</span>,
+            <span class="hljs-attr">mode</span>: <span class="hljs-literal">true</span>
+        }，{
+            <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">label</span>: <span class="hljs-string">"住址"</span>
+            <span class="hljs-attr">mode</span>: [<span class="hljs-string">"北京"</span>, <span class="hljs-string">"上海"</span>, <span class="hljs-string">"广州"</span>]
+        }]
+    }).render(<span class="hljs-string">"#root"</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><p> 如果您的列表显示内容和检索内容不相同，则该列配置<code>包含对象key和val的数组</code>即可。 </p><pre><code class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+    EasyTable.init().add({
+        <span class="hljs-comment">// ...more configs</span>
+        <span class="hljs-attr">config</span>: [{
+            <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">label</span>: <span class="hljs-string">"姓名"</span>,
+            <span class="hljs-attr">mode</span>: <span class="hljs-string">""</span>
+        },{
+            <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">label</span>: <span class="hljs-string">"年龄"</span>,
+            <span class="hljs-attr">mode</span>: <span class="hljs-literal">true</span>
+        }，{
+            <span class="hljs-attr">able</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">label</span>: <span class="hljs-string">"住址"</span>
+            <span class="hljs-attr">mode</span>: [
+                { <span class="hljs-attr">val</span>: <span class="hljs-string">"BJ"</span>, <span class="hljs-attr">key</span>:<span class="hljs-string">"北京"</span> },
+                { <span class="hljs-attr">val</span>: <span class="hljs-string">"SH"</span>, <span class="hljs-attr">key</span>:<span class="hljs-string">"上海"</span> },
+                { <span class="hljs-attr">val</span>: <span class="hljs-string">"GZ"</span>, <span class="hljs-attr">key</span>: <span class="hljs-string">"广州"</span> }
+            ]
+        }]
+    }).render(<span class="hljs-string">"#root"</span>);
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre></div></section><section id="hooks"><div class="container"><h2 id="钩子函数">钩子函数</h2><h3 id="onloaddata">onloadData</h3><p><code>onloadData</code>函数钩子在数据初次加载时调用，暴露当前检索模式的数据。 </p><h3 id="onchangesearch">onChangeSearch</h3><p><code>onChangeSearch</code>函数钩子在检索变动时(如切换检索、输入改变)调用，暴露当前检索模式的信息和符合检索内容的数据。 </p><h3 id="onchangepage">onChangePage</h3><p><code>onChangePage</code>函数钩子在换页翻页调用，暴露当前切换到的页数。 </p><h3 id="onchangeconfig">onChangeConfig</h3><p><code>onChangeConfig</code>页面表格数据变化时调用，暴露此时页面数据数组。 </p></div></section><section id="thanks"><div class="container"><h2 id="鸣谢">鸣谢</h2><h3 id="open-source">Open Source</h3><p> 再次感谢以下的开源项目，没有这些优秀的开源项目，也不可能有<code>EasyTable</code>的诞生 </p><ul><li><p><a href="https://vuejs.org/">vue</a></p></li><li><p><a href="https://github.com/axios/axios">axios</a></p></li><li><p><a href="https://github.com/chenjiahan/vodal">vodal</a></p></li><li><p><a href="https://github.com/shawroger/Rexine">rexine</a></p></li><li><p><a href="https://github.com/dwqs/v2-table">v2-table</a></p></li></ul><h3 id="打赏">打赏</h3><p>如果您对这个项目感兴趣的话，可以打赏来支持我，反正随缘。</p><img alt="支付宝收款" src="https://pic.downk.cc/item/5ea67bf8c2a9a83be5133d51.jpg" width="200"><br><img alt="微信收款" src="https://pic.downk.cc/item/5ea67b7fc2a9a83be512b52d.png" width="200"></div></section></div><section id="footer"><div class="container"> Roger © 2020 </div></section></div></div><script src="./js/chunk-vendors.f62e624c.js"></script><script src="./js/app.6d533515.js"></script><div id="titleBar"><a href="#header" class="toggle"></a><span class="title"><a href="#">EasyTable</a></span></div></body></html>
