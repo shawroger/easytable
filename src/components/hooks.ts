@@ -4,6 +4,8 @@ import {
 	reactive,
 	toRefs,
 	SetupContext,
+	watch,
+	onUnmounted,
 } from "@vue/composition-api";
 import { arrayToJson } from "rexine";
 import { getData } from "../utils/fetch";
@@ -26,6 +28,7 @@ export function useTable(ctx: SetupContext) {
 			isAscend: 1,
 			prop: "",
 		},
+		dataCount: 0,
 	});
 
 	const tableData = computed(() => {
@@ -66,6 +69,11 @@ export function useTable(ctx: SetupContext) {
 			);
 		}
 
+		/**
+		 * mark the count of page
+		 */
+		state.dataCount = result.length;
+
 		return result;
 	});
 
@@ -78,6 +86,20 @@ export function useTable(ctx: SetupContext) {
 	const columns = computed(() =>
 		state.custom.config!.filter((item) => item.able)
 	);
+
+	const countWatcher = watch(
+		() => state.dataCount,
+		() => {
+			//@ts-ignore
+			state.currentPage = v2table.value.curPage = 1;
+			(v2table.value as any).getRenderPages();
+		},
+		{
+			lazy: true,
+		}
+	);
+
+	onUnmounted(() => countWatcher());
 
 	/**
 	 * 获取当前配置
@@ -141,13 +163,6 @@ export function useTable(ctx: SetupContext) {
 			state.custom.data as string,
 			state.custom.config!.map((item) => item.label!)
 		);
-
-		// //@ts-ignore
-		// if(v2table.value?.$forceUpdate) {
-		// 	//@ts-ignore
-		// 	v2table.value?.$forceUpdate();
-		// 	console.log(2)
-		// }
 
 		state.loading = false;
 	}
