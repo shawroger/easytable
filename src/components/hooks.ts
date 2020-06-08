@@ -45,7 +45,12 @@ export function useTable(ctx: SetupContext) {
 							? 0
 							: 1;
 				} else {
-					flag += data[item.label!].includes(item.$$val) ? 0 : 1;
+					flag +=
+						typeof data[item.label!] !== "undefined"
+							? data[item.label!].includes(item.$$val)
+								? 0
+								: 1
+							: 0;
 				}
 			}
 
