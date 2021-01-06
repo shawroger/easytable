@@ -30,7 +30,7 @@
     "@poi/plugin-typescript": "^12.3.1",
     "@types/node": "^13.13.5",
     "@vue/composition-api": "^0.5.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "beautify-scrollbar": "^1.0.8",
     "node-sass": "^4.14.1",
     "rexine": "^2.3.0",
